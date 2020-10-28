@@ -1,0 +1,23 @@
+import time
+from googlesearch import search
+import requests
+from bs4 import BeautifulSoup
+from tkinter import *
+stock = input("Enter what stock you would like to monitor: ")
+while True:
+    query = stock + " stock yahoo"
+    for j in search(query, tld="com", num=1, stop=1, pause=2):
+        pass
+    url = j
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    value = (soup.findAll('span',{"class":"Trsdu(0.3s) Fw(b) Fz(36px) Mb(-4px) D(ib)"}))
+    valueInHours = value[0]
+    valueStr = ''.join(valueInHours)
+    '''noDollar = valueStr.replace('$', '')
+    listOfFluctations = []
+    listOfFluctations.append(noDollar)
+    for iu in listOfFluctations:
+        if noDollar > '''
+    print(valueStr)
+    time.sleep(20)
