@@ -1,2 +1,2 @@
 # StockMonitor
-Stock Monitoring program in its infancy.
+Stock monitoring program in its infancy.
